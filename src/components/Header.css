@@ -1,3 +1,5 @@
 .Jumbo {
+    flex: 1;
     background-color: white;
+    align-self: center;
 }
