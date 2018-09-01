@@ -17,7 +17,7 @@ class SideBar extends Component {
 
       mql.addListener(this.mediaQueryChanged);
   }
-  
+
 
   render() {
     const NavItem = [
@@ -38,7 +38,21 @@ class SideBar extends Component {
         url: "#contact"
       }
     ];
-    return <div />;
+    return (
+        <ul className="sidebar-nav">
+        {NavItem.map(link => (
+            <li
+              key={link.url}
+              className="sidebar-nav-item"
+              onClick={() => this.onMenuItemClick()}
+            >
+              <a className="js-scroll-trigger" href={link.url}>
+                {link.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+        )
   }
 }
 

@@ -15,6 +15,41 @@
 import React from "react";
 import Sidebar from "react-sidebar";
 
+const styles ={
+  root: {
+    backgroundColor: "black",
+  },
+  contentHeaderMenuLink: {
+    textDecoration: "none",
+    fontWeight: "500",
+    fontSize: "4rem",
+    color: "black",
+    marginLeft: 20,
+    
+    
+  },
+  header: {
+    textDecoration: "none",
+    fontWeight:"400",
+    fontSize:"3rem",
+    color: "black",
+    marginLeft: 50,
+  },
+  sidebarContent: {
+    fontSize: "2rem",
+    display: "flex",
+    flexDirection: "column",
+    
+    justifyContent: "space-between",
+    alignContent: "space-between",
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+
+
+  }
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -24,28 +59,32 @@ class App extends React.Component {
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
 
-  onSetSidebarOpen(open) {
-    this.setState({ sidebarOpen: open });
+  onSetSidebarOpen() {
+    this.setState({ sidebarOpen: !this.state.sidebarOpen });
   }
 
   render() {
     return (
       <Sidebar
         sidebar={
-          <div>
-            <b>Sidebar content</b>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+          <div style={styles.sidebarContent}>
+            <b href="#1">About</b>
+            <b href="#2">About</b>
+            <b href="#3">About</b>
+            <b href="#4">About</b>
           </div>
+            
         }
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
         styles={{ sidebar: { background: "powderblue" } }}
       >
-        <button onClick={() => this.onSetSidebarOpen(true)}>
-          Open sidebar
-        </button>
+        <a
+            onClick={this.onSetSidebarOpen}
+            href="#"
+            style={styles.contentHeaderMenuLink}
+          >=</a>
+          <span style={styles.header}>Fortpolio</span>
       </Sidebar>
     );
   }
